@@ -1,21 +1,31 @@
-#Esta clase toma por ingreso una fecha de nacimiento y determina tu signo zodiacal , elementoo y te dice tus elementos compatibles 
-
-
-
+#this program tells you your zodiacal sign, element and compatible element from your date of birth
 class Astrology:
     date = ""
     sign = ""
     element = ""
-    compatible = ""
+    fcompatible = ""
+    scompatible = ""
     
     def __init__(self, date):
         self.date = date
         self.sign = self.getSign()
         self.element = self.getElement()
-        self.compatible = self.getCompatible()
+        self.fcompatible = self.getFirstCompatible()
+        self.scompatible = self.getSecondCompatible()
     
-    #* This class tells wich one is you comapatible element 
-    def getCompatible(self):
+    #* This class tells wich one is you first comapatible element 
+    def getFirstCompatible(self):
+        if self.element == "Fire":
+            return "Fire"
+        elif self.element == "Air":
+            return "Air"
+        elif self.element == "Water":
+            return "Water"
+        elif self.element == "Earth":
+            return "Earth"
+    
+    #* This class tells wich one is you second  comapatible element 
+    def getSecondCompatible(self):
         if self.element == "Fire":
             return "Air"
         elif self.element == "Air":
@@ -105,7 +115,8 @@ class Astrology:
     def print(self):
         print("Your zodiacal sign is: " + self.sign)
         print("Your element is: " + self.element)
-        print("Your compatible element is: " + self.compatible)
+        print("Your first  compatible element is: " + self.fcompatible)
+        print("Your second compatible element is: " + self.scompatible)  
 
 #* This function asks the user for a date and returns it
 def askDate():
